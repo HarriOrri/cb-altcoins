@@ -6,10 +6,10 @@ var Transactions = require('./transactions')
 var utils = require('./utils')
 
 var NETWORKS = {
-testnet: {symbol:"tbtc" , api:"blockr",tx:"tx",block:"block",address:"address"},
-bitcoin:{  symbol: "btc",api:"blockr",tx:"tx",block:"block",address:"address"},
-litecoin: { symbol: "ltc",api:"blockr",tx:"tx",block:"block",address:"address"},
-auroracoin:{  symbol:'aur',api:"aurinsight",tx:"tx",block:"block",address:"addr"}
+testnet: {symbol:"tbtc" , api:"blockr",tx:"/tx",block:"/block",address:"/address"},
+bitcoin:{  symbol: "btc",api:"blockr",tx:"/tx",block:"/block",address:"/address"},
+litecoin: { symbol: "ltc",api:"blockr",tx:"/tx",block:"/block",address:"/address"},
+auroracoin:{  symbol:'aur',api:"aurinsight",tx:"/tx",block:"/block",address:"/addr"}
 }
 
 function CBAltcoins(network, proxyURL) {
@@ -18,7 +18,7 @@ function CBAltcoins(network, proxyURL) {
   var BASE_URL = ''
   if(NETWORKS[network].api==="blockr")
   {
-  BASE_URL='https://' + NETWORKS[network] + '.blockr.io/api/v1/'
+  BASE_URL='https://' + NETWORKS[network] + '.blockr.io/api/v1'
 }else if(NETWORKS[network].api==="aurinsight")
 {
   BASE_URL='http://insight.' + NETWORKS[network] + '.io'
