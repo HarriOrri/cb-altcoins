@@ -6,9 +6,10 @@ var Transactions = require('./transactions')
 var utils = require('./utils')
 
 var NETWORKS = {
-  testnet: "tbtc",
-  bitcoin: "btc",
-  litecoin: "ltc"
+testnet: {symbol:"tbtc" , api:"blockr"},
+bitcoin:{  symbol: "btc",api:"blockr"},
+litecoin: { symbol: "ltc",api:"blockr"},
+auroracoin:{  symbol:'aur',api:"aurinsight"}
 }
 
 function Blockr(network, proxyURL) {
