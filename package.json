@@ -1,5 +1,5 @@
 {
-  "name": "cb-blockr",
+  "name": "cb-altcoins",
   "version": "3.1.2",
   "description": "common-blockchain-blockr",
   "main": "./src/index.js",
@@ -8,19 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/weilu/cb-blockr.git"
+    "url": "https://github.com/LTEX-DEV/cb-altcoins.git"
   },
-  "author": "Wei Lu <luwei.here@gmail.com>",
+  "author": "hashgoal <hashgoal@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/weilu/cb-blockr/issues"
+    "url": "https://github.com/LTEX-DEV/cb-altcoins/issues"
   },
   "dependencies": {
     "async": "^0.9.0",
     "bitcoinjs-lib": "^1.4.2",
     "httpify": "^0.4.1"
   },
-  "homepage": "https://github.com/weilu/cb-blockr",
+  "homepage": "https://github.com/LTEX-DEV/cb-altcoins",
   "devDependencies": {
     "cb-tester": "^0.1.x",
     "coveralls": "^2.11.2",
