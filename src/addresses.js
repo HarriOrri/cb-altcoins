@@ -8,7 +8,7 @@ function Addresses(url, txEndpoint) {
 }
 
 Addresses.prototype.summary = function(addresses, callback) {
-  var uri = this.url 
+  var uri = this.url +"addrs/"
 
   validateAddresses(addresses, function(err) {
     if(err) return callback(err)
