@@ -69,7 +69,7 @@ Transactions.prototype.propagate = function(transactions, callback) {
 
   var requests = transactions.map(function(txHex) {
     return function(cb) {
-      utils.makePostRequest(that.url + 'push', { hex: txHex }, cb)
+      utils.makePostRequest(that.url + 'tx/send', { rawtx: txHex }, cb)
     }
   })
 
