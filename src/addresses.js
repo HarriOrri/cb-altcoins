@@ -48,11 +48,9 @@ Addresses.prototype.transactions = function(addresses, blockHeight, done) {
   validateAddresses(addresses, function(err) {
     if(err) return done(err)
 
-    async.parallel([
-      // confirmed transactions
-      function(callback) {
-        utils.batchRequest(url + 'txs/', addresses, {params: ["confirmations=0"]}, function(err, data) {
-          if (err) return callback(err)
+     
+        utils.batchRequest(url + 'txs/', addresses, {params: ["from=0","to=20"]}, function(err, data) {
+          if (err) return done(err)
 
           data.forEach(function(address) {
             address.txs.forEach(function(tx) {
@@ -60,30 +58,9 @@ Addresses.prototype.transactions = function(addresses, blockHeight, done) {
             })
           })
 
-          callback()
+          self.txEndpoint.get(Object.keys(txIds), done)
         })
-      },
-
-      // unconfirmed (FIXME: remove if they ever fix their API)
-      function(callback) {
-        utils.batchRequest(url + 'unconfirmed/', addresses, {}, function(err, data) {
-          if (err) return callback(err)
-
-          data.forEach(function(address) {
-            address.unconfirmed.forEach(function(tx) {
-              txIds[tx.tx] = true
-            })
           })
-
-          callback()
-        })
-      }
-    ], function(err) {
-      if (err) return done(err)
-
-      self.txEndpoint.get(Object.keys(txIds), done)
-    })
-  })
 }
 
 Addresses.prototype.unspents = function(addresses, callback) {
