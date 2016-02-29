@@ -52,9 +52,9 @@ Addresses.prototype.transactions = function(addresses, blockHeight, done) {
         utils.batchRequest(url + 'txs/', addresses, {params: ["from=0","to=20"]}, function(err, data) {
           if (err) return done(err)
 
-          data.forEach(function(address) {
-            address.txs.forEach(function(tx) {
-              txIds[tx.tx] = true
+          data.forEach(function(batch) {
+            batch.items.forEach(function(tx) {
+              txIds[tx.txid] = true
             })
           })
 
