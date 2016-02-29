@@ -13,15 +13,15 @@ Addresses.prototype.summary = function(addresses, callback) {
   validateAddresses(addresses, function(err) {
     if(err) return callback(err)
 
-    utils.batchRequest(uri, addresses, {params: ["confirmations=0"]}, function(err, data) {
+    utils.batchRequest(uri, addresses, {params: ["noTxList=0"]}, function(err, data) {
       if(err) return callback(err);
 
       var results = data.map(function(address) {
         return {
-          address: address.address,
+          address: address.addrStr,
           balance: address.balance,
-          totalReceived: address.totalreceived,
-          txCount: address.nb_txs
+          totalReceived: address.totalReceived,
+          txCount: address.txApperances
         }
       })
 
