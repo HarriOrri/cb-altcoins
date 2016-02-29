@@ -6,7 +6,7 @@ function Transactions(url) {
 }
 
 Transactions.prototype.summary = function(txIds, callback) {
-  var uri = this.url 
+  var uri = this.url + "txs/"
 
   utils.batchRequest(uri, txIds, {params: ["output=aurorawallet"]}, function(err, data) {
     if(err) return callback(err)
@@ -37,22 +37,22 @@ Transactions.prototype.summary = function(txIds, callback) {
 }
 
 Transactions.prototype.get = function(txIds, callback) {
-  var uri = this.url + "raw/"
+  var uri = this.url + "rawtxs/"
 
   var queryTxIds = [].concat(txIds)
-  utils.batchRequest(uri, queryTxIds, {params: ["output=hivewallet"]}, function(err, data) {
+  utils.batchRequest(uri, queryTxIds, {params: ["output=aurorawallet"]}, function(err, data) {
     if (err) return callback(err)
 
     var results = data.map(function(d, i) {
       return {
-        txId: queryTxIds[i],
-        txHex: d.tx.hex,
-        blockId: d.tx.blockhash,
-        blockHeight: d.tx.blockheight,
+        txId: d.txid,
+        txHex: d.hex,
+        blockId: d.blockhash,
+        blockHeight: 0,
 
         // non-standard
-        __blockTimestamp: d.tx.blocktime,
-        __confirmations: d.tx.confirmations || 0
+        __blockTimestamp: d.blocktime,
+        __confirmations: d.confirmations || 0
       }
     })
 
