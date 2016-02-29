@@ -24,9 +24,9 @@ function CBAltcoins(network, proxyURL) {
   BASE_URL='http://insight.' + NETWORKS[network] + '.io/api/'
 }
   // end points
-  this.transactions = new Transactions(BASE_URL + NETWORKS[network].tx)
-  this.addresses = new Addresses(BASE_URL + NETWORKS[network].address , this.transactions)
-  this.blocks = new Blocks(BASE_URL + NETWORKS[network].block, this.transactions)
+  this.transactions = new Transactions(BASE_URL)
+  this.addresses = new Addresses(BASE_URL , this.transactions)
+  this.blocks = new Blocks(BASE_URL , this.transactions)
 
   this.network = network
 
