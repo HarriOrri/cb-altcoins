@@ -9,7 +9,7 @@ var NETWORKS = {
 testnet: {symbol:"tbtc" , api:"blockr",tx:"tx/",block:"block/",address:"address/"},
 bitcoin:{  symbol: "btc",api:"blockr",tx:"tx/",block:"block/",address:"address/"},
 litecoin: { symbol: "ltc",api:"blockr",tx:"tx/",block:"block/",address:"address/"},
-auroracoin:{  symbol:'aur',api:"aurinsight",tx:"tx/",block:"block/",address:"addrs/"}
+auroracoin:{  symbol:'aur',api:"aurinsight",tx:"txs/",block:"block/",address:"addrs/"}
 }
 
 function CBAltcoins(network, proxyURL) {
@@ -25,7 +25,7 @@ function CBAltcoins(network, proxyURL) {
 }
   // end points
   this.transactions = new Transactions(BASE_URL + NETWORKS[network].tx)
-  this.addresses = new Addresses(BASE_URL + NETWORKS[network].addr , this.transactions)
+  this.addresses = new Addresses(BASE_URL + NETWORKS[network].address , this.transactions)
   this.blocks = new Blocks(BASE_URL + NETWORKS[network].block, this.transactions)
 
   this.network = network
