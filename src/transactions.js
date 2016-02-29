@@ -6,18 +6,18 @@ function Transactions(url) {
 }
 
 Transactions.prototype.summary = function(txIds, callback) {
-  var uri = this.url + "info/"
+  var uri = this.url 
 
-  utils.batchRequest(uri, txIds, {params: ["output=hivewallet"]}, function(err, data) {
+  utils.batchRequest(uri, txIds, {params: ["output=aurorawallet"]}, function(err, data) {
     if(err) return callback(err)
 
     var results = data.map(function(d) {
       return {
-        txId: d.tx,
+        txId: d.txid,
         blockId: d.blockhash,
-        blockHeight: d.block,
+        blockHeight: 0,
         nInputs: d.vins.length,
-        nOutputs: d.vouts.length,
+        nOutputs: d.vout.length,
         totalInputValue: -getTotalValue(d.vins),
         totalOutputValue: getTotalValue(d.vouts)
       }
