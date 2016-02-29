@@ -18,7 +18,7 @@ Transactions.prototype.summary = function(txIds, callback) {
         blockHeight: 0,
         nInputs: d.vins.length,
         nOutputs: d.vout.length,
-        totalInputValue: -getTotalValue(d.vins),
+        totalInputValue: getTotalValue(d.vins),
         totalOutputValue: getTotalValue(d.vouts)
       }
     })
@@ -30,7 +30,8 @@ Transactions.prototype.summary = function(txIds, callback) {
     if (!inputs) return 0
 
     return inputs.reduce(function(memo, input) {
-      return memo + Math.round(input.amount * 1e8)
+      if(!input.value) input.value=0;
+      return memo + Math.round(input.value * 1e8)
     }, 0)
   }
 }
