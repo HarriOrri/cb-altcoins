@@ -9,7 +9,7 @@ function Blocks(url, txEndpoint) {
 }
 
 Blocks.prototype.get = function(idsOrHeights, callback) {
-  var uri = this.url + "raw/"
+  var uri = this.url + "block-index/"
   var txEndpoint = this.txEndpoint
 
   utils.batchRequest(uri, idsOrHeights, function(err, data) {
@@ -42,23 +42,25 @@ Blocks.prototype.get = function(idsOrHeights, callback) {
 }
 
 Blocks.prototype.latest = function(callback) {
-  var uri = this.url + "raw/last/"
+ // var uri = this.url + "raw/last/"
 
-  utils.makeRequest(uri, function(err, data) {
-    if(err) return callback(err)
+ // utils.makeRequest(uri, function(err, data) {
+ //   if(err) return callback(err)
 
-    callback(null, {
-      blockId: data.hash,
-      prevBlockId: data.previousblockhash,
-      merkleRootHash: data.merkleroot,
-      nonce: data.nonce,
-      version: data.version,
-      blockHeight: data.height,
-      blockSize: parseInt(data.bits, 16),
-      timestamp: data.time,
-      txCount: data.tx.length
-    })
-  })
+ //   callback(null, {
+ //     blockId: data.hash,
+ //     prevBlockId: data.previousblockhash,
+ //     merkleRootHash: data.merkleroot,
+ //     nonce: data.nonce,
+ //     version: data.version,
+//      blockHeight: data.height,
+ //     blockSize: parseInt(data.bits, 16),
+//      timestamp: data.time,
+//      txCount: data.tx.length
+//    })
+//  })
+
+assert(false, 'TODO')
 }
 
 Blocks.prototype.propagate = function() {
