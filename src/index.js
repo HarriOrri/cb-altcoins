@@ -6,10 +6,10 @@ var Transactions = require('./transactions')
 var utils = require('./utils')
 
 var NETWORKS = {
-testnet: {symbol:"tbtc" , api:"blockr",tx:"tx/",block:"block/",address:"address/"},
-bitcoin:{  symbol: "btc",api:"blockr",tx:"tx/",block:"block/",address:"address/"},
-litecoin: { symbol: "ltc",api:"blockr",tx:"tx/",block:"block/",address:"address/"},
-auroracoin:{  symbol:'aur',api:"aurinsight",tx:"txs/",block:"block/",address:"addrs/"}
+testnet: {symbol:"tbtc" , api:"blockr"},
+bitcoin:{  symbol: "btc",api:"blockr"},
+litecoin: { symbol: "ltc",api:"blockr"},
+auroracoin:{  symbol:'aur',api:"aurinsight"}
 }
 
 function CBAltcoins(network, proxyURL) {
