@@ -1,5 +1,5 @@
 {
-  "name": "cb-altcoins",
+  "name": "cb-wallet",
   "version": "3.1.2",
   "description": "common-blockchain-blockr",
   "main": "./src/index.js",
