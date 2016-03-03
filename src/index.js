@@ -18,10 +18,10 @@ function CBAltcoins(network, proxyURL) {
   var BASE_URL = ''
   if(NETWORKS[network].api==="blockr")
   {
-  BASE_URL='https://' + NETWORKS[network] + '.blockr.io/api/v1/'
+  BASE_URL='https://' + NETWORKS[network].symbol + '.blockr.io/api/v1/'
 }else if(NETWORKS[network].api==="aurinsight")
 {
-  BASE_URL='http://insight.' + NETWORKS[network] + '.io/api/'
+  BASE_URL='http://insight.' + NETWORKS[network].symbol + '.io/api/'
 }
   // end points
   this.transactions = new Transactions(BASE_URL)
