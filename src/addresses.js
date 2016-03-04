@@ -8,7 +8,7 @@ function Addresses(url, txEndpoint) {
 }
 
 Addresses.prototype.summary = function(addresses, callback) {
-  var uri = this.url +"addrs/"
+  var uri = this.url +"addr/"
 
   validateAddresses(addresses, function(err) {
     if(err) return callback(err)
@@ -41,7 +41,7 @@ Addresses.prototype.transactions = function(addresses, blockHeight, done) {
     console.warn('Blockr API does not support blockHeight filter for addresses.transactions')
   }
 
-  var url = this.url +"addrs/"
+  var url = this.url +"addrs/txs/"
   var txIds = {}
 
   var self = this
@@ -49,7 +49,7 @@ Addresses.prototype.transactions = function(addresses, blockHeight, done) {
     if(err) return done(err)
 
      
-        utils.batchRequest(url + 'txs/', addresses, {params: ["from=0","to=20"]}, function(err, data) {
+        utils.batchRequest(url, addresses, {params: ["from=0","to=20"]}, function(err, data) {
           if (err) return done(err)
 
           data.forEach(function(batch) {
@@ -64,7 +64,7 @@ Addresses.prototype.transactions = function(addresses, blockHeight, done) {
 }
 
 Addresses.prototype.unspents = function(addresses, callback) {
-  var uri = this.url + "utxo/"
+  var uri = this.url + "addrs/utxo/"
 
   validateAddresses(addresses, function(err) {
     if(err) return callback(err)
