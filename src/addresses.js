@@ -41,7 +41,7 @@ Addresses.prototype.transactions = function(addresses, blockHeight, done) {
     console.warn('Blockr API does not support blockHeight filter for addresses.transactions')
   }
 
-  var url = this.url
+  var url = this.url +"addrs/"
   var txIds = {}
 
   var self = this
