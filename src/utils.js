@@ -7,7 +7,7 @@ function assertJSend(body) {
   assert.notEqual(body.status, 'error', body.message || 'Invalid JSend response:' + JSON.stringify(body))
   assert.notEqual(body.status, 'fail', body.data || 'Invalid JSend response: ' + JSON.stringify(body))
 
-  assert.equal(body.status, 'success', 'Unexpected JSend response: ' + body)
+ // assert.equal(body.status, 'success', 'Unexpected JSend response: ' + body)
   //assert.notEqual(body.data, undefined, 'Unexpected JSend response: ' + body)
 }
 
