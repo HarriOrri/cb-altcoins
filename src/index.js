@@ -9,7 +9,7 @@ var NETWORKS = {
 testnet: {symbol:"tbtc" , api:"blockr"},
 bitcoin:{  symbol: "btc",api:"blockr"},
 litecoin: { symbol: "ltc",api:"blockr"},
-auroracoin:{  symbol:'aur',api:"aurinsight"}
+auroracoin:{  symbol:'auroracoin',api:"aurinsight"}
 }
 
 function CBAltcoins(network, proxyURL) {
