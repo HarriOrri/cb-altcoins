@@ -6,14 +6,14 @@ var Transactions = require('./transactions')
 var utils = require('./utils')
 
 var NETWORKS = {
-testnet: {symbol:"tbtc" , api:"blockr"},
-bitcoin:{  symbol: "btc",api:"blockr"},
-litecoin: { symbol: "ltc",api:"blockr"},
+//testnet: {symbol:"tbtc" , api:"blockr"},
+//bitcoin:{  symbol: "btc",api:"blockr"},
+//litecoin: { symbol: "ltc",api:"blockr"},
 auroracoin:{  symbol:'auroracoin',api:"aurinsight"}
 }
 
 function CBAltcoins(network, proxyURL) {
-  network = network || 'bitcoin'
+  network = network || 'auroracoin'
   assert(network in NETWORKS, 'Unknown network: ' + network)
   var BASE_URL = ''
   if(NETWORKS[network].api==="blockr")
