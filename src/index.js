@@ -22,7 +22,7 @@ function CBAltcoins(network, proxyURL) {
 }else if(NETWORKS[network].api==="aurinsight")
 {
   //BASE_URL='http://insight.' + NETWORKS[network].symbol + '.io/api/'
-  BASE_URL='http://87.213.74.218:5860/api/'
+  BASE_URL='https://hiveinsight.auroracoin.is/api/'
 }
   // end points
   this.transactions = new Transactions(BASE_URL)
